@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Secure Notes</string>
+    <string name="create_new_note">Click to create a new note</string>
+    <string name="settings_button">Click to enter the settings menu</string>
+    <string name="search_button">Click to search notes</string>
+    <string name="mock_title">This is a note title!</string>
+    <string name="mock_note_text">This is an example of a note text. This is what the note says!</string>
+    <string name="return_button">Click to return to the previous screen.</string>
+    <string name="save_note">Click to save the note</string>
+    <string name="note_title">Note Title</string>
+    <string name="note_body">Note Body</string>
+</resources>
