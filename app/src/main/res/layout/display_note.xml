@@ -18,17 +18,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/returnButton"
-        android:layout_width="51dp"
-        android:layout_height="51dp"
-        android:background="#00FFFFFF"
-        android:contentDescription="@string/return_button"
-        android:scaleType="fitCenter"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/abc_vector_test" />
-
-    <ImageButton
         android:id="@+id/editButton"
         android:layout_width="51dp"
         android:layout_height="51dp"
