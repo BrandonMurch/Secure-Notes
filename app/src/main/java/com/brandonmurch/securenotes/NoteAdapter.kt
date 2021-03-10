@@ -1,6 +1,5 @@
 package com.brandonmurch.securenotes
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,11 +35,9 @@ class NoteAdapter(private val notes: MutableList<Note>, private val onNoteListen
             view.setOnClickListener(this)
         }
 
-        override fun onClick(v: View?) {
+        override fun onClick(v: View) {
             onNoteListener.onNoteClick(adapterPosition)
         }
-
-
     }
 
     interface OnNoteListener{
