@@ -3,10 +3,12 @@ package com.brandonmurch.securenotes
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.brandonmurch.securenotes.NoteAdapter.OnNoteListener
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity(), OnNoteListener {
 
@@ -26,6 +28,11 @@ class MainActivity : AppCompatActivity(), OnNoteListener {
         val recyclerView : RecyclerView = findViewById(R.id.recyclerNotes)
         recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         recyclerView.adapter = NoteAdapter(notes, this)
+
+        val createNoteButton : FloatingActionButton = findViewById(R.id.floatingButtonNewNote)
+        createNoteButton.setOnClickListener {
+            startActivity(Intent(this, CreateNoteActivity::class.java))
+        }
     }
 
     override fun onNoteClick(position: Int) {
