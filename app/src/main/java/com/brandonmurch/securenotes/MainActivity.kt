@@ -1,9 +1,8 @@
 package com.brandonmurch.securenotes
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,10 +12,22 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 class MainActivity : AppCompatActivity(), OnNoteListener {
 
     private val notes = ArrayList<Note>()
+    private val createNoteRequestCode = 1
 
     private fun mockNotes() {
         notes.add(Note("Test Note", "this is a note body."))
         notes.add(Note("Test Note 2", "electric boogaloo"))
+    }
+
+    private fun createNote(title: String, body: String) {
+        notes.add(Note(title, body))
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == this.createNoteRequestCode && resultCode == Activity.RESULT_OK) {
+                createNote(data?.getStringExtra("title").orEmpty(), data?.getStringExtra("body").orEmpty())
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +42,7 @@ class MainActivity : AppCompatActivity(), OnNoteListener {
 
         val createNoteButton : FloatingActionButton = findViewById(R.id.floatingButtonNewNote)
         createNoteButton.setOnClickListener {
-            startActivity(Intent(this, CreateNoteActivity::class.java))
+            startActivityForResult(Intent(this, CreateNoteActivity::class.java), createNoteRequestCode)
         }
     }
 
